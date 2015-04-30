@@ -1,17 +1,40 @@
 package com.example.meg.africanshortstories;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
+
+    RecyclerView mRecyclerView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //geting the recycler from xml
+        mRecyclerView= (RecyclerView)findViewById(R.id.recycler_view);
+        //setting the recycler to fixed size to improve performance
+        mRecyclerView.setHasFixedSize(true);
+
+       //create a LayoutManager and set it to the RecyclerView
+
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        RecyclerView.Adapter mAdapter= new CardAdapter();
+
+         /*mAdapter = new CardAdapter();*/
+        mRecyclerView.setAdapter(mAdapter);
+
+
+
     }
 
 
