@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
+
 public class MainActivity extends Activity {
 
     RecyclerView mRecyclerView;
@@ -27,8 +28,10 @@ public class MainActivity extends Activity {
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
+//initializing adapter
+        RecyclerView.Adapter mAdapter;
+         mAdapter= new CardAdapter();
 
-        RecyclerView.Adapter mAdapter= new CardAdapter();
 
          /*mAdapter = new CardAdapter();*/
         mRecyclerView.setAdapter(mAdapter);
@@ -59,4 +62,6 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
